@@ -1,19 +1,9 @@
-# iOS Project Structure (Lab 3)
+# Lab 3 (Storyboard) - quick run
 
-Папки:
-- `App/` - AppDelegate/SceneDelegate (если используются)
-- `Models/` - модели данных
-- `Views/` - кастомные UIView/ячейки
-- `ViewControllers/` - контроллеры экранов
-- `Resources/` - storyboard/xib/assets
-- `Supporting/` - вспомогательные файлы
+```bash
+cd task3/lab3_variant17/ios_project
+xcodegen generate
+open Lab3DoctorProfile.xcodeproj
+```
 
-Для этой лабы:
-- `ViewControllers/DoctorProfileViewController.swift`
-- `Resources/Main.storyboard`
-
-Как запустить в Xcode:
-1. Создать новый UIKit App проект.
-2. Перетащить файлы из этой структуры в проект.
-3. Указать `Main.storyboard` как Main Interface.
-4. Выбрать Team/Bundle ID и нажать Run.
+В Xcode: Signing Team -> Simulator -> Cmd+R.
