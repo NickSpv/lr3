@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nav-controller">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="scene-nav">
+            <objects>
+                <navigationController id="nav-controller" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nav-bar"/>
+                    <connections>
+                        <segue destination="doctor-vc" kind="relationship" relationship="rootViewController" id="nav-root"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nav-first" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <scene sceneID="scene-main">
+            <objects>
+                <viewController id="doctor-vc" customClass="DoctorProfileViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="main-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scroll-view">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="content-view">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="820"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="root-stack">
+                                                <rect key="frame" x="20" y="20" width="353" height="780"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="photo-view">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="160"/>
+                                                        <color key="tintColor" systemColor="systemTealColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="160" id="photo-height"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Анна Смирнова" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="full-name">
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Кардиолог" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="YES" minimumScaleFactor="0.8" translatesAutoresizingMaskIntoConstraints="NO" id="speciality">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="info-stack">
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Квалификация: высшая категория" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="qualification"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Опыт работы: 12 лет" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="experience"/>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="О враче" numberOfLines="1" translatesAutoresizingMaskIntoConstraints="NO" id="about-title">
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Проводит диагностику и лечение сердечно-сосудистых заболеваний, консультирует по профилактике и восстановлению после терапии." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="about-text">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="150" id="about-height"/>
+                                                        </constraints>
+                                                    </textView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="buttons-stack">
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="appointment-button">
+                                                                <state key="normal" title="Записаться"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="favorite-button">
+                                                                <state key="normal" title="В избранное"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="buttons-height"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="root-stack" firstAttribute="top" secondItem="content-view" secondAttribute="top" constant="20" id="stack-top"/>
+                                            <constraint firstItem="root-stack" firstAttribute="leading" secondItem="content-view" secondAttribute="leading" constant="20" id="stack-leading"/>
+                                            <constraint firstAttribute="trailing" secondItem="root-stack" secondAttribute="trailing" constant="20" id="stack-trailing"/>
+                                            <constraint firstAttribute="bottom" secondItem="root-stack" secondAttribute="bottom" constant="20" id="stack-bottom"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="content-view" firstAttribute="top" secondItem="scroll-view" secondAttribute="contentLayoutGuide.top" id="content-top"/>
+                                    <constraint firstItem="content-view" firstAttribute="leading" secondItem="scroll-view" secondAttribute="contentLayoutGuide.leading" id="content-leading"/>
+                                    <constraint firstItem="scroll-view" firstAttribute="contentLayoutGuide.trailing" secondItem="content-view" secondAttribute="trailing" id="content-trailing"/>
+                                    <constraint firstItem="scroll-view" firstAttribute="contentLayoutGuide.bottom" secondItem="content-view" secondAttribute="bottom" id="content-bottom"/>
+                                    <constraint firstItem="content-view" firstAttribute="width" secondItem="scroll-view" secondAttribute="frameLayoutGuide.width" id="content-width"/>
+                                    <constraint firstItem="content-view" firstAttribute="height" relation="greaterThanOrEqual" secondItem="scroll-view" secondAttribute="frameLayoutGuide.height" id="content-height"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="safe-area"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="scroll-view" firstAttribute="top" secondItem="safe-area" secondAttribute="top" id="scroll-top"/>
+                            <constraint firstItem="scroll-view" firstAttribute="leading" secondItem="safe-area" secondAttribute="leading" id="scroll-leading"/>
+                            <constraint firstItem="safe-area" firstAttribute="trailing" secondItem="scroll-view" secondAttribute="trailing" id="scroll-trailing"/>
+                            <constraint firstItem="safe-area" firstAttribute="bottom" secondItem="scroll-view" secondAttribute="bottom" id="scroll-bottom"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Профиль врача" id="nav-item"/>
+                    <connections>
+                        <outlet property="aboutTextView" destination="about-text" id="outlet-about"/>
+                        <outlet property="appointmentButton" destination="appointment-button" id="outlet-appointment"/>
+                        <outlet property="experienceLabel" destination="experience" id="outlet-experience"/>
+                        <outlet property="favoriteButton" destination="favorite-button" id="outlet-favorite"/>
+                        <outlet property="fullNameLabel" destination="full-name" id="outlet-name"/>
+                        <outlet property="photoImageView" destination="photo-view" id="outlet-photo"/>
+                        <outlet property="qualificationLabel" destination="qualification" id="outlet-qualification"/>
+                        <outlet property="specialityLabel" destination="speciality" id="outlet-speciality"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="main-first" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="secondaryLabelColor">
+            <color white="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
