@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <scene sceneID="scene-nav">
@@ -23,10 +24,121 @@
                     <view key="view" contentMode="scaleToFill" id="main-view">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doctor-image">
+                                <rect key="frame" x="10" y="10" width="104" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="img-w"/>
+                                    <constraint firstAttribute="height" constant="92" id="img-h"/>
+                                </constraints>
+                            </imageView>
+
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fields-col">
+                                <rect key="frame" x="124" y="10" width="186" height="110"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="horizontal" spacing="8" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="row-first">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="First" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="label-first">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="first-label-w"/>
+                                                </constraints>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" borderStyle="roundedRect" placeholder="First" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="field-first">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="first-field-h"/>
+                                                </constraints>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="horizontal" spacing="8" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="row-middle">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Middle" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="label-middle">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="middle-label-w"/>
+                                                </constraints>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" borderStyle="roundedRect" placeholder="Middle" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="field-middle">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="middle-field-h"/>
+                                                </constraints>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="horizontal" spacing="8" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="row-last">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Last" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="label-last">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="last-label-w"/>
+                                                </constraints>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" borderStyle="roundedRect" placeholder="Last" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="field-last">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="last-field-h"/>
+                                                </constraints>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="desc-view">
+                                <rect key="frame" x="10" y="112" width="300" height="398"/>
+                            </textView>
+
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="horizontal" spacing="6" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="buttons-row">
+                                <rect key="frame" x="10" y="518" width="300" height="42"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="cancel-btn">
+                                        <state key="normal" title="Cancel"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="save-btn">
+                                        <state key="normal" title="Save"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="clear-btn">
+                                        <state key="normal" title="Clear"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="btns-h"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="safe-area"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="doctor-image" firstAttribute="top" secondItem="safe-area" secondAttribute="top" constant="10" id="img-top"/>
+                            <constraint firstItem="doctor-image" firstAttribute="leading" secondItem="main-view" secondAttribute="leading" constant="10" id="img-leading"/>
+
+                            <constraint firstItem="fields-col" firstAttribute="top" secondItem="doctor-image" secondAttribute="top" id="fields-top"/>
+                            <constraint firstItem="fields-col" firstAttribute="leading" secondItem="doctor-image" secondAttribute="trailing" constant="10" id="fields-leading"/>
+                            <constraint firstAttribute="trailing" secondItem="fields-col" secondAttribute="trailing" constant="10" id="fields-trailing"/>
+
+                            <constraint firstItem="desc-view" firstAttribute="top" secondItem="doctor-image" secondAttribute="bottom" constant="10" id="desc-top"/>
+                            <constraint firstItem="desc-view" firstAttribute="leading" secondItem="main-view" secondAttribute="leading" constant="10" id="desc-leading"/>
+                            <constraint firstAttribute="trailing" secondItem="desc-view" secondAttribute="trailing" constant="10" id="desc-trailing"/>
+
+                            <constraint firstItem="buttons-row" firstAttribute="top" secondItem="desc-view" secondAttribute="bottom" constant="8" id="btn-top"/>
+                            <constraint firstItem="buttons-row" firstAttribute="leading" secondItem="main-view" secondAttribute="leading" constant="10" id="btn-leading"/>
+                            <constraint firstAttribute="trailing" secondItem="buttons-row" secondAttribute="trailing" constant="10" id="btn-trailing"/>
+                            <constraint firstItem="safe-area" firstAttribute="bottom" secondItem="buttons-row" secondAttribute="bottom" constant="8" id="btn-bottom"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nav-item"/>
+                    <connections>
+                        <outlet property="doctorImageView" destination="doctor-image" id="out-doctor-image"/>
+                        <outlet property="firstLabel" destination="label-first" id="out-first-label"/>
+                        <outlet property="middleLabel" destination="label-middle" id="out-middle-label"/>
+                        <outlet property="lastLabel" destination="label-last" id="out-last-label"/>
+                        <outlet property="firstField" destination="field-first" id="out-first-field"/>
+                        <outlet property="middleField" destination="field-middle" id="out-middle-field"/>
+                        <outlet property="lastField" destination="field-last" id="out-last-field"/>
+                        <outlet property="descriptionView" destination="desc-view" id="out-desc"/>
+                        <outlet property="cancelButton" destination="cancel-btn" id="out-cancel"/>
+                        <outlet property="saveButton" destination="save-btn" id="out-save"/>
+                        <outlet property="clearButton" destination="clear-btn" id="out-clear"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="main-first" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
